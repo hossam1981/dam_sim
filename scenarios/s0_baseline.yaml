@@ -1,0 +1,20 @@
+scenario_id: S0_baseline
+reservoir:
+  initial_level_masl: 178.0
+  stage_storage_curve: data/hydraulics/stage_storage.csv
+breach:
+  type: "piping"
+  center_xy: [32.123, 24.045]
+  init_width_m: 200
+  final_width_m: 500
+  bottom_elev_masl: 140
+  growth_hours: 3
+hydraulics:
+  manning:
+    channel: 0.030
+    floodplain: 0.060
+  cell_size_m: 100
+  timestep_s: 2.0
+outputs:
+  save_interval_min: 15
+  rasters: [depth, velocity, arrival_time, hazard_index]

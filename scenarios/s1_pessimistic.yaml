@@ -1,0 +1,20 @@
+scenario_id: S1_pessimistic
+reservoir:
+  initial_level_masl: 180.0
+  stage_storage_curve: data/hydraulics/stage_storage.csv
+breach:
+  type: "overtopping"
+  center_xy: [32.123, 24.045]
+  init_width_m: 400
+  final_width_m: 800
+  bottom_elev_masl: 138
+  growth_hours: 1.5
+hydraulics:
+  manning:
+    channel: 0.030
+    floodplain: 0.070
+  cell_size_m: 150
+  timestep_s: 2.0
+outputs:
+  save_interval_min: 10
+  rasters: [depth, velocity, arrival_time, hazard_index]
