@@ -1,0 +1,87 @@
+{
+  "version": "2.0.0",
+  "options": {
+    "cwd": "${workspaceFolder}"
+  },
+  "tasks": [
+    {
+      "label": "🧩 Setup Environment",
+      "type": "shell",
+      "command": "python3 -m pip install --upgrade pip setuptools wheel && python3 -m pip install --only-binary \":all:\" -r requirements_macos.txt",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "🌍 Run 3D Dashboard",
+      "type": "shell",
+      "command": "streamlit run dashboard/app_3d.py",
+      "group": "test",
+      "dependsOn": [
+        "🧩 Setup Environment"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "📊 Run Basic Dashboard",
+      "type": "shell",
+      "command": "streamlit run dashboard/app.py",
+      "group": "test",
+      "dependsOn": [
+        "🧩 Setup Environment"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "🤖 Run ML Predictor",
+      "type": "shell",
+      "command": "python3 ml_model/predict_api.py",
+      "group": "test",
+      "dependsOn": [
+        "🧩 Setup Environment"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "🧠 Train ML Models",
+      "type": "shell",
+      "command": "python3 ml_model/train_model.py",
+      "group": "build",
+      "dependsOn": [
+        "🧩 Setup Environment"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "🚀 Run All (Setup → Train → 3D)",
+      "type": "shell",
+      "command": "echo 'All steps kicked off'",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "🧩 Setup Environment",
+        "🧠 Train ML Models",
+        "🌍 Run 3D Dashboard"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    }
+  ]
+}
+

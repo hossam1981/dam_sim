@@ -1,0 +1,22 @@
+# Core geospatial & processing
+rasterio
+geopandas
+pandas
+numpy
+pyyaml
+xarray
+rich
+
+# Visualization & Web Apps
+streamlit
+pydeck
+pillow
+
+# Machine Learning
+scikit-learn
+joblib
+
+# Optional (for shapefiles, projections, or DEMs)
+shapely
+fiona
+pyproj

@@ -1,0 +1,34 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run 3D Dashboard 🌍",
+      "type": "python",
+      "request": "launch",
+      "program": "dashboard/app_3d.py",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Run Basic Dashboard 📊",
+      "type": "python",
+      "request": "launch",
+      "program": "dashboard/app.py",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Run ML Predictor 🤖",
+      "type": "python",
+      "request": "launch",
+      "program": "ml_model/predict_api.py",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Train ML Models 🧠",
+      "type": "python",
+      "request": "launch",
+      "program": "ml_model/train_model.py",
+      "console": "integratedTerminal"
+    }
+  ]
+}
+
